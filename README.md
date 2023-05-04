@@ -23,17 +23,18 @@ The webhook allows external services to be notified when certain changes happen.
 
 - Add webhook
 
-Diagram 
- 
+<img width="1199" alt="Step 1 webhook 3:05" src="https://user-images.githubusercontent.com/126012715/236292987-3003391f-61a7-4518-af69-d5ab717a33d2.png">
+
 <h4>Step 2</h4> 
 
 - Go back to the first Jenkins CI (name-ci) created and add a build trigger to initiate the automation.
 - `Github hook trigger for GitScm polling`.
+
+<img width="961" alt="Step 2 add hook trigger" src="https://user-images.githubusercontent.com/126012715/236293150-6df1cd56-1f06-4e48-998f-ac31da64c213.png">
+
 - We use our previous ssh link repo and the ssh private key since we are using the same AMI instance.
 
 Should be now finished in the name-ci (first build project)
-
-Diagram 
 
 <h4>Step 3</h4>
 
@@ -49,7 +50,7 @@ You can either,
 
 Should pop up as a new build deployment within Jenkins.
 
-Diagram 
+<img width="769" alt="step 3 webhook jenkins deploy" src="https://user-images.githubusercontent.com/126012715/236293275-b14d302b-ff97-4c39-a012-561cd10cb907.png">
 
 <h3>Creating our new branch within Jenkins</h3>
 
@@ -73,7 +74,8 @@ Diagram
 - `git add .` then `git commit -m "" then `git push origin main` and it should push the new merged branch.
 - Test this by checking Jenkins, which should show a new build being deployed. 
 
-Diagram
+<img width="1246" alt="step 4 Dev Branch (3:04:23)" src="https://user-images.githubusercontent.com/126012715/236293707-35b9674c-9d97-4365-bc41-8b315495d899.png">
+
 
 Should now show the updated code and the readme file on your Github automatically. 
 
