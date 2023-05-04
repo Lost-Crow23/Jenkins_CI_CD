@@ -16,14 +16,14 @@ We use Jenkins for the CI and CD through our Github to launch it on the AWS AMI 
 - Make sure to create the webhook to which the App Folder is in.
 - Settings, Webhooks, Add webhooks.
 
+<img width="1199" alt="Step 1 webhook 3:05" src="https://user-images.githubusercontent.com/126012715/236292987-3003391f-61a7-4518-af69-d5ab717a33d2.png">
+
 The webhook allows external services to be notified when certain changes happen. 
 
 - Copy the home Jenkins URL link to connect github to Jenkins. 
 - Only click push only
 
 - Add webhook
-
-<img width="1199" alt="Step 1 webhook 3:05" src="https://user-images.githubusercontent.com/126012715/236292987-3003391f-61a7-4518-af69-d5ab717a33d2.png">
 
 <h4>Step 2</h4> 
 
@@ -42,7 +42,13 @@ Testing the webhook within our local host towards jenkins
 
 You can either, 
 - Go on Github folder and edit one of your readme.md file, e.g. #Webhook test
+
+<img width="1264" alt="Webhook automation Step 3 1" src="https://user-images.githubusercontent.com/126012715/236300341-6389e7a0-2d1b-4331-996c-1bcf7a5ec474.png">
+
 - Go on Gitbash terminal, and `cd` to the current repo where the app folder is in so `Jenkins_CI_CD.`
+
+and 
+
 - Git pull, to pull the changes from the changes we made earlier.
 - Sudo nano <Readme.md file> to make the changes to test it
 - `git add .` then `git commit -m ""`
@@ -76,14 +82,13 @@ Should pop up as a new build deployment within Jenkins.
 
 <img width="1246" alt="step 4 Dev Branch (3:04:23)" src="https://user-images.githubusercontent.com/126012715/236293707-35b9674c-9d97-4365-bc41-8b315495d899.png">
 
-
 Should now show the updated code and the readme file on your Github automatically. 
 
 <h3>Automating the merge </h3>
 
 <h4>Step 1</h4>
 
-- Go on Jenkins and create a new job `name-ci-merge-dev` , copy template from name-ci-test (ruhal-ci-merge)
+- Go on Jenkins and create a new job `name-ci-test-dev` , copy template from name-ci-test (ruhal-ci-merge)
 
 <h4>Step 2</h4>
 
@@ -98,7 +103,7 @@ Diagram
 - `post build actions` we select git publisher and select as below. 
 - This helps if the build succeeds if it doesn't it would not push and an error will pop up.
 
-Diagram
+<img width="956" alt="Step 5 Dev branch SCM" src="https://user-images.githubusercontent.com/126012715/236301820-d5a6e147-be8c-4215-bc3c-1016776d0d98.png">
 
 <h4>Step 4</h4>
 
@@ -106,7 +111,7 @@ Diagram
 - Edit and add a `add post-build actions`, this will merge our dev branch if it is only successful to this test merge stage. 
 - Click Save
 
-Diagram 
+<img width="941" alt="Step 7 post build with build other projects" src="https://user-images.githubusercontent.com/126012715/236301866-f40c1624-8503-4d9b-a378-312dd6844266.png">
 
 <h4>Step 5</h4>
 
@@ -121,7 +126,7 @@ Diagram
 
 - Check the working order of the changes by navigating between the GitHub repo's branches, changes that were made within the `dev` branch should have been pushed and added to the `main` branch.
 
-Diagram 
+<img width="1264" alt="Step 8 Merging from dev to main" src="https://user-images.githubusercontent.com/126012715/236301957-4ec98bf3-797e-4672-96e6-5e8091d0fa2a.png">
 
 <h3>Creating a third iteration Job to push code to production</h3>
 
@@ -135,7 +140,7 @@ Lanching our AWS AMI to configure the sparta app through the use of our AWS to g
 
 - Configure the Security group 
 
-Diagram 
+<img width="1053" alt="Step 1 SGs sparta app" src="https://user-images.githubusercontent.com/126012715/236302415-4bacbcd8-fa71-4cda-b02e-6e746fe70f9c.png">
 
 - Launch the instance
 
@@ -143,7 +148,7 @@ Diagram
 
 - Create a new job called `name-ci-deploy`, (`ruhal-ci-deploy`) to deploy our sparta app 
 
-Diagram 
+<img width="949" alt="Step 1 Deploy" src="https://user-images.githubusercontent.com/126012715/236302287-6f21f593-e618-41d8-ba69-ed60b7f617c3.png">
 
 - Edit description as desired e.g `Building a ci to deploy everything to aws ec2`
 - Discard old builds, github project as before
@@ -161,8 +166,8 @@ Diagram
 
 - Under `Build triggers` tick the `Github hook trigger` and add an ssh agent which is already created for us `tech221_aws_key`
 
-Diagram
- 
+<img width="945" alt="step 2 build environment" src="https://user-images.githubusercontent.com/126012715/236302872-ce5a4e68-f4a0-427a-9eb0-045bd90d52cd.png">
+
 <h4>Step 7</h4>
 
 - To Automate this we have to `execute shell` script within `add build step` the commands are as below.
@@ -173,8 +178,8 @@ Diagram
        sudo npm install pm2 -g
        nohup node app.js > /dev/null 2>&1 &
        
- Diagram
-  
+ <img width="934" alt="step 3 Execute shell " src="https://user-images.githubusercontent.com/126012715/236302908-629a27da-4821-4102-93d9-4c9ef5ed0d09.png">
+
 - Click save
   
 <h4>Final step</h4>
