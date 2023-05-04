@@ -165,9 +165,7 @@ Diagram
     #
     ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
     #sudo apt install clear#
-
     cd app
-
     #sudo npm install pm2 -g
     # pm2 kill
     nohup node app.js > /dev/null 2>&1 &
