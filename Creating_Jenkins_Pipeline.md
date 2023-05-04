@@ -3,6 +3,12 @@ Jenkins Pipeline
 Here we create a completely new pipeline for our jenkins from installing jenkins from scratch from our ec2's and deploying the sparta app through our own 
 Jenkin's account through the use of creating jobs.
 
+Before we get started we need to know what CI/CD is.
+
+Continuous integration (CI) is a DevOps practice in which team members regularly commit their code changes to the version control repository, 
+after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
+deployed to production.
+
 Creating an AWS Instance 
 
 Step 1 
@@ -32,4 +38,7 @@ Installing Jenkins on Ubuntu 18.04
 
 Step 1 
 
-- On git bash terminal, make sure to `.ssh` onto your instance of the master e.g 
+- On git bash terminal, make sure to `.ssh` onto your instance of the master e.g `name-tech221-master-jenkins`
+- Then run the following commands
+
+
