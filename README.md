@@ -161,11 +161,11 @@ Diagram
 
 - To Automate this we have to `execute shell` script within `add build step` the commands are as below.
 
-     scp -v -r -o StrictHostKeyChecking=no app/ ubuntu@<my-ip>:/home/ubuntu/
-     ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
-     cd app
-     sudo npm install pm2 -g
-     nohup node app.js > /dev/null 2>&1 &
+       scp -v -r -o StrictHostKeyChecking=no app/ ubuntu@<my-ip>:/home/ubuntu/
+       ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
+       cd app
+       sudo npm install pm2 -g
+       nohup node app.js > /dev/null 2>&1 &
   
 - Click save
   
