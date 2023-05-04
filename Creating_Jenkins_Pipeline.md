@@ -39,6 +39,25 @@ Installing Jenkins on Ubuntu 18.04
 Step 1 
 
 - On git bash terminal, make sure to `.ssh` onto your instance of the master e.g `name-tech221-master-jenkins`
+- Make sure you are logged in as a user with `admin` or be able to use `sudo`
 - Then run the following commands
 
+      sudo apt-get update
+      sudo apt install openjdk-8-jdk
+
+
+      wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+      sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+      sudo apt-get update
+      sudo apt-get install jenkins
+      sudo systemctl start jenkins
+      sudo systemctl enable jenkins
+
+      #Adjusting the firewall
+      sudo ufw allow OpenSSH
+      sudo ufw enable
+      sudo ufw status
+      
+      # Displays the password when prompted by by jenkins on the browser
+      sudo cat /var/lib/jenkins/secrets/initialAdminPassword    
 
