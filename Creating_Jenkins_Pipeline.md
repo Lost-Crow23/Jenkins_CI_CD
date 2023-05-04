@@ -98,5 +98,24 @@ Installing Plugins
 These plugins are required to move further to use our Jenkins with our instance and create jobs to launch our sparta app.
 
 - On Jenkins, go to `dashboard` and choose `manage jenkins`
+
+
 - Click `Available Plugins`
-- 
+- And install the following plugins either with `restart` or `without restart`.
+
+      NodeJS Plugin
+      Amazon EC2 Plugin
+      Office 365 Connector
+      SSH Agent Plugin
+      GitHub plugin # Should have been automatically installed
+      
+Step 7
+
+- Make changes through `global tool configuration`
+- Scroll down to the `nodejs` plugin we had installed and edit the plugin to name (sparta-node-app), version `NodeJS 16`, then edit on 
+
+`Global npm packages to install` and we paste `sudo npm install pm2 -g`
+
+- Click save
+
+
