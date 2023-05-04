@@ -92,6 +92,21 @@ Diagram
 Step 3 
 
 - `post build actions` we select git publisher and select as below. 
+- This helps if the build succeeds if it doesn't it would not push and an error will pop up.
+
+Diagram
+
+Step 4 
+
+- Go to name-ci-merge (test) job
+- Edit and add a `add post-build actions`, this will merge our dev branch if it is only successful to this test merge stage. 
+- Click Save
+
+Diagram 
+
+Step 5
+
+- 
 
 
 
