@@ -77,6 +77,26 @@ Step 3
 
 - A setup wizard will ask you whether you want to install suggested plugins or specific plugins. We chose `install suggested plugins`
 
+Diagram
+
 Step 4
 
+- Now we setup our Admin `Username` and `password` for jenkins account.
+
+Step 5 
+
+- Once completed, this page will set the URL for your Jenkins instance which will be your primary URL.
+
+Step 6
+
+- Jenkins should be ready to use.
+
+Diagram
+
+Installing Plugins
+
+These plugins are required to move further to use our Jenkins with our instance and create jobs to launch our sparta app.
+
+- On Jenkins, go to `dashboard` and choose `manage jenkins`
+- Click `Available Plugins`
 - 
