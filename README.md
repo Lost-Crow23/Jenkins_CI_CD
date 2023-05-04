@@ -162,12 +162,11 @@ Diagram
 - To Automate this we have to `execute shell` script within `add build step` the commands are as below.
 
     scp -v -r -o StrictHostKeyChecking=no app/ ubuntu@<my-ip>:/home/ubuntu/
-    #
     ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
-    #sudo apt install clear#
+    sudo apt install clear#
     cd app
-    #sudo npm install pm2 -g
-    # pm2 kill
+    sudo npm install pm2 -g
+    pm2 kill
     nohup node app.js > /dev/null 2>&1 &
   
 - Click save
