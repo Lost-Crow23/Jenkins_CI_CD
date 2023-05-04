@@ -64,3 +64,19 @@ Step 1
       # Displays the password when prompted by by jenkins on the browser
       sudo cat /var/lib/jenkins/secrets/initialAdminPassword    
 
+Step 2 
+
+- To Setup the jenkin's installation, open your browser and type your IP address from your AWS EC2 instance e.g `http://54.154.206.39:8080/` making sure
+we add `:8080` at the end for Jenkin's.
+
+Diagram
+
+- From our previous commands we were given a password, to access jenkin's, so we just copy and paste the password e.g `0eefc4f9f74d4896a05bef8e294504d9` and click `continue` 
+
+Step 3 
+
+- A setup wizard will ask you whether you want to install suggested plugins or specific plugins. We chose `install suggested plugins`
+
+Step 4
+
+- 
