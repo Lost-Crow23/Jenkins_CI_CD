@@ -43,17 +43,19 @@ Step 1
 - Then run the following commands
 
       sudo apt-get update
-      
+      #since Jenkins is a Java application, the first step is to install Java.
       sudo apt install openjdk-8-jdk
 
       #Import the GPG keys of the Jenkins repository using the following wget command:
       wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+      #add the Jenkins repository to the system with:
       sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
       sudo apt-get update
       sudo apt-get install jenkins
       sudo systemctl start jenkins
       sudo systemctl enable jenkins
-
+      sudo systemctl status jenkins
+      
       #Adjusting the firewall
       sudo ufw allow OpenSSH
       sudo ufw enable
