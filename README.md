@@ -106,7 +106,16 @@ Diagram
 
 Step 5
 
-- 
+- On gitbash terminal, we edit once again `sudo nano <readme file>` and do the following commands, `git add .` , `git commit -m ""` , `git push origin dev`, As this will push any changes we have made in our dev branch to the main branch if successful. 
+
+Step 6 
+
+- It should deploy it on name-ci-merge (test), thus updating it on the dev branch and as we edited the post build-actions.
+- Should trigger `dev` branch `name-ci-merge-dev`, merging the `dev` into the `main` branch
+
+Final Step 
+
+- Check the working order of the changes by navigating between the GitHub repo's branches, changes that were made within the `dev` branch should have been pushed and added to the `main` branch.
 
 
 
