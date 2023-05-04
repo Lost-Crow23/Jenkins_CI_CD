@@ -19,7 +19,7 @@ We use Jenkins for the CI and CD through our Github to launch it on the AWS AMI 
 The webhook allows external services to be notified when certain changes happen. 
 
 - Copy the home Jenkins URL link to connect github to Jenkins. 
-- Only push 
+- Only click push only
 
 - Add webhook
 
@@ -27,9 +27,9 @@ Diagram
  
 <h4>Step 2</h4> 
 
-- Go back to the first Jenkins CI created and add a build trigger to initiate the automation
-- `Github hook trigger for GitScm polling`
-- We use our previous ssh link repo and the ssh private key since we are using the same AMI instance
+- Go back to the first Jenkins CI (name-ci) created and add a build trigger to initiate the automation.
+- `Github hook trigger for GitScm polling`.
+- We use our previous ssh link repo and the ssh private key since we are using the same AMI instance.
 
 Should be now finished in the name-ci (first build project)
 
