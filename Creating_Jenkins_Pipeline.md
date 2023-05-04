@@ -118,6 +118,6 @@ Step 7
 
 - Click save
 
-diagram - ruhal part 4 
+diagram - ruhal part 5 
 
 
