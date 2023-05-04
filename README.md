@@ -73,7 +73,9 @@ Diagram
 - `git add .` then `git commit -m "" then `git push origin main` and it should push the new merged branch.
 - Test this by checking Jenkins, which should show a new build being deployed. 
 
-Should now show the updated code and the readme file on your Github automatically 
+Diagram
+
+Should now show the updated code and the readme file on your Github automatically. 
 
 <h3>Automating the merge </h3>
 
@@ -119,7 +121,7 @@ Diagram
 
 Diagram 
 
-<h3>Creating a third iteration Job to push code to production  </h3>
+<h3>Creating a third iteration Job to push code to production</h3>
 
 <h4>Step 1</h4>
 
@@ -156,6 +158,8 @@ Diagram
 <h4>Step 6</h4>
 
 - Under `Build triggers` tick the `Github hook trigger` and add an ssh agent which is already created for us `tech221_aws_key`
+
+Diagram
  
 <h4>Step 7</h4>
 
@@ -166,6 +170,8 @@ Diagram
        cd app
        sudo npm install pm2 -g
        nohup node app.js > /dev/null 2>&1 &
+       
+ Diagram
   
 - Click save
   
@@ -176,9 +182,9 @@ Diagram
 <h4>Extra Step</h4>
   
 - Edit the `app` file within your IDE (Vscode) and edit the sparta message to your desired message. 
+- Do the usual commands to update and push the repo to the Github
   
-Diagram 
-  
+<img width="1439" alt="Third Job, Sparta app edited " src="https://user-images.githubusercontent.com/126012715/236290805-f694b650-bdeb-424e-b658-1cf8e22e6d13.png">
 
 
   
