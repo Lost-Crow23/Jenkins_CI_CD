@@ -118,6 +118,34 @@ Step 7
 
 - Click save
 
-diagram - ruhal part 8 
+diagram 
+
+Final Step 
+
+When build Job, it should automatically automate and be sucessfull without the use of creating a `dev` branch nor the AMI instance (`deploy job`)
+
+Create a new pipeline
+
+As this was done previously, you may use the steps as before or follow the steps as below:
+
+For your information: In this instance, my merging `dev` branch did not seem to authenticate and work when I merge it into the main from changing my files in my Github repo thus not completing the job in Jenkins. 
+
+Must do:
+
+Step 1 
+
+- Open Jenkins and Create a new item/job called `name-ci` (ruhal-ci) and choose freestyle project
+- Set description e.g `Building and automating my pipeline`
+- Discard old builds and set max builds to 3
+- Choose Github project (HTTPs link), on the main branch and repo with the app folder
+
+Step 2 
+
+- SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link, 
+- Choose `SSH Username` and paste the new key and click add in credentials. 
+- Make sure the name of the private key insights that is shown in your terminal matches and the key is perfectly copy and pasted.
+
+If errors persist with the key e.g `permission denied` please follow the commands below:
+
 
 
