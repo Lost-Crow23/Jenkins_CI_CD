@@ -2,6 +2,8 @@
 
 We use Jenkins for the CI and CD through our Github to launch it on the AWS AMI cloud instance deployment.
 
+Jenkins is an open source automation server. It helps automate the parts of software development related to building, testing, and deploying,
+
 Continuous integration (CI) is a DevOps practice in which team members regularly commit their code changes to the version control repository, 
 after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
 deployed to production.
