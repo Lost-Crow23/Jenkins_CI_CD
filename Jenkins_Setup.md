@@ -175,6 +175,7 @@ Lanching our AWS AMI to configure the sparta app through the use of our AWS to g
        scp -v -r -o StrictHostKeyChecking=no app/ ubuntu@<my-ip>:/home/ubuntu/
        ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
        cd app
+       pm2 kill
        sudo npm install pm2 -g
        nohup node app.js > /dev/null 2>&1 &
        
