@@ -1,7 +1,6 @@
-Jenkins Pipeline
+ <h1>Jenkins Pipeline</h1>
 
-Here we create a completely new pipeline for our jenkins from installing jenkins from scratch from our ec2's and deploying the sparta app through our own 
-Jenkin's account through the use of creating jobs.
+Here we create a completely new pipeline for our jenkins from installing jenkins from scratch from our ec2's and deploying the sparta app through our own Jenkin's account through the use of creating jobs.
 
 Before we get started we need to know what CI/CD is.
 
@@ -9,9 +8,9 @@ Continuous integration (CI) is a DevOps practice in which team members regularly
 after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
 deployed to production.
 
-Creating an AWS Instance 
+<h2>Creating an AWS Instance</h2>
 
-Step 1 
+<h3>Step 1</h3>
 
 - Create a name e.g `name-tech221-master-jenkins`
 - Choose Ubuntu 18.04
@@ -22,21 +21,21 @@ to work around
 
 Diagram
 
-Step 2 
+<h3>Step 2</h3>
 
-Create a Agent Node
+<h2>Create a Agent Node</h2>
 
 All dependdencies to run the app folder has been installed within this instance.
 
-- Create name e.g name-tech221-CI-Test and choose ubuntu 18.04
+- Create name e.g `name-ci-app-new-v1` and choose ubuntu 18.04
 - Make sure to click `t2.micro` as our server would not overload and CPU would remain standard
 - Key/pair `tech221` and now we create our SGs with the given access ports as below
 
 Diagram 
 
-Installing Jenkins on Ubuntu 18.04
+<h2>Installing Jenkins on Ubuntu 18.04</h2>
 
-Step 1 
+<h3>Step 1</h3>
 
 - On git bash terminal, make sure to `.ssh` onto your instance of the master e.g `name-tech221-master-jenkins`
 - Make sure you are logged in as a user with `admin` or be able to use `sudo`
@@ -64,7 +63,7 @@ Step 1
       # Displays the password when prompted by by jenkins on the browser
       sudo cat /var/lib/jenkins/secrets/initialAdminPassword    
 
-Step 2 
+<h3>Step 2</h3>
 
 - To Setup the jenkin's installation, open your browser and type your IP address from your AWS EC2 instance e.g `http://54.154.206.39:8080/` making sure
 we add `:8080` at the end for Jenkin's.
@@ -73,27 +72,27 @@ Diagram
 
 - From our previous commands we were given a password, to access jenkin's, so we just copy and paste the password e.g `0eefc4f9f74d4896a05bef8e294504d9` and click `continue` 
 
-Step 3 
+<h3>Step 3</h3>
 
 - A setup wizard will ask you whether you want to install suggested plugins or specific plugins. We chose `install suggested plugins`
 
 Diagram
 
-Step 4
+<h3>Step 4</h3> 
 
 - Now we setup our Admin `Username` and `password` for jenkins account.
 
-Step 5 
+<h3>Step 5</h3>
 
 - Once completed, this page will set the URL for your Jenkins instance which will be your primary URL.
 
-Step 6
+<h3>Step 6</h3>
 
 - Jenkins should be ready to use.
 
 Diagram
 
-Installing Plugins
+<h3>Installing Plugins</h3>
 
 These plugins are required to move further to use our Jenkins with our instance and create jobs to launch our sparta app.
 
@@ -109,7 +108,7 @@ These plugins are required to move further to use our Jenkins with our instance 
       SSH Agent Plugin
       GitHub plugin # Should have been automatically installed
       
-Step 7
+<h3>Step 7</h3>
 
 - Make changes through `global tool configuration`
 - Scroll down to the `nodejs` plugin we had installed and edit the plugin to name (sparta-node-app), version `NodeJS 16`, then edit on 
@@ -120,26 +119,26 @@ Step 7
 
 diagram 
 
-Final Step 
+<h3>Final Step</h3>
 
 When build Job, it should automatically automate and be sucessfull without the use of creating a `dev` branch nor the AMI instance (`deploy job`)
 
-Create a new pipeline
+<h2>Create a new pipeline</h2>
 
 As this was done previously, you may use the steps as before or follow the steps as below:
 
 For your information: In this instance, my merging `dev` branch did not seem to authenticate and work when I merge it into the main from changing my files in my Github repo thus not completing the job in Jenkins. 
 
-Must do:
+<strong>Must do:
 
-Step 1 
+<h3>Step 1</h3>
 
 - Open Jenkins and Create a new item/job called `name-ci` (ruhal-ci) and choose freestyle project
 - Set description e.g `Building and automating my pipeline`
 - Discard old builds and set max builds to 3
 - Choose Github project (HTTPs link), on the main branch and repo with the app folder
 
-Step 2 
+<h3>Step 2</h3>
 
 - SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link, 
 - Choose `SSH Username` and paste the new key and click add in credentials. 
@@ -155,7 +154,7 @@ If errors persist with the key e.g `permission denied` please follow the command
 
 - Exit Jenkins terminal `exit`
 
-Step 3
+<h3>Step 3</h3>
 
 - Within the `branch Specifier` change to `dev` instead of main, as we now are creating our `dev` branch to use within GitHub and Jenkins deployment.
 
@@ -163,7 +162,7 @@ FYI - This `dev` branch did not work for my case, so instead I switched back `ma
 
 - Select `GitHub Hook Trigger` which we setup earlier.
 
-Step 4
+<h3>Step 4</h3>
 
 - Within the `build environment` we choose to `provide Node & npm` which is the `spata-node-app` which we configured through the plugins
 - Within the `execute shell` command:
@@ -172,24 +171,24 @@ Step 4
       npm install
       npm test
 
-Creating the merge(test) Job
+<h2>Creating the merge(test) Job </h2>
 
 FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this `link` if you do progress onto this stage. This is used to edit our `app` folder thus merging it with the `main` thus deploying it after through our ` AWS app Instance`.
 
-Creating to deploy our Sparta App
+<h2>Creating to deploy our Sparta App</h2>
 
-Step 1 
+<h3>Step 1</h3>
 
 - Open Jenkins and Create a new item/job called `name-ci-deploy` (ruhal-ci-deploy) and choose freestyle project
 - Set description e.g `Deploying the app onto AWS instance`
 - Discard old builds and set max builds to 3
 - Choose Github project (HTTPs link), on the main branch and repo with the app folder
-
-Step 2 
+      
+<h3>Step 2</h3>
 
 - SCM to, on main branch repo, SSH key link for the repository URL, and thus choose git and insert the private key which you may do within the .ssh folder or the previous created credentials
 
-Step 3 
+<h3>Step 3</h3>
 
 - Within the `branch Specifier` change to `main`, as we now are initiating the merge from the main to our deployment.
 - Choose `provide Node & npm` choosing `sparta-node-app`
@@ -197,7 +196,7 @@ Step 3
 
 Diagram
 
-Step 4
+<h3>Step 4</h3>
 
 - `Execute Shell` as below:
 
@@ -210,13 +209,13 @@ Step 4
       
 - Paste the IP from the `name-ci-app-new-v1` which is the AMI App instance
 
-Step 5 
+<h3>Step 5</h3>
 
 - Go back to Jenkins and see if the `build-jobs` are running and working, which be should displayed as a green tick or a blue circle.
 
 Diagram
 
-Final Iteration
+<h3>Final Iteration</h3>
 
 - Choose the first job e.g `name-ci` and edit the configuration
 - Edit `post-build actions` and `build other projects`
