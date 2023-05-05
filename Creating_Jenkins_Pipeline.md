@@ -165,9 +165,57 @@ FYI - This `dev` branch did not work for my case, so instead I switched back `ma
 
 Step 4
 
-- Within the `build environment` we choose to `provide Node & npm` which is the `spara-node-app` which we configured through the plugins
+- Within the `build environment` we choose to `provide Node & npm` which is the `spata-node-app` which we configured through the plugins
 - Within the `execute shell` command:
 
       cp app
       npm install
       npm test
+
+Creating the merge(test) Job
+
+FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this `link` if you do progress onto this stage. 
+
+Creating to deploy our Sparta App
+
+Step 1 
+
+- Open Jenkins and Create a new item/job called `name-ci-deploy` (ruhal-ci-deploy) and choose freestyle project
+- Set description e.g `Deploying the app onto AWS instance`
+- Discard old builds and set max builds to 3
+- Choose Github project (HTTPs link), on the main branch and repo with the app folder
+
+Step 2 
+
+- SCM to, on main branch repo, SSH key link for the repository URL, and thus choose git and insert the private key which you may do within the .ssh folder or the previous created credentials
+
+Step 3 
+
+- Within the `branch Specifier` change to `main`, as we now are initiating the merge from the main to our deployment.
+- Choose `provide Node & npm` choosing `sparta-node-app`
+- From plugin `ssh agent` we create our own `ssh username`, secret key, `cat tech221.pem` command in Git bash terminal within the `.ssh` folder to give the secret key and add too credentials.
+
+Diagram
+
+Step 4
+
+- `Execute Shell` as below:
+
+      scp -v -r -o StrictHostKeyChecking=no app/ ubuntu@<my-ip>:/home/ubuntu/
+      ssh -A -o StrictHostKeyChecking=no ubuntu@<my-ip> <<EOF
+      cd app
+      pm2 kill
+      sudo npm install pm2 -g
+      nohup node app.js > /dev/null 2>&1 &
+      
+- Paste the IP from the `name-ci-app-new-v1` which is the AMI App instance
+
+Step 5 
+
+- Go back to Jenkins and see if the `build-jobs` are running and working, which be should displayed as a green tick or a blue circle.
+
+Diagram
+
+Final Iteration
+
+- 
