@@ -145,16 +145,20 @@ For your information: In this instance, my merging `dev` branch did not seem to 
 
 <h3>Step 2</h3>
 
-- SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link 
+- SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link [Git, GitHub and SSH keys](https://github.com/Lost-Crow23/tech221_aws#git-github-and-ssh-keys)
+
 - Choose `SSH Username` and paste the new key and click add in credentials. 
 - Make sure the name of the private key insights that is shown in your terminal matches and the key is perfectly copy and pasted.
 
 If errors persist with the key e.g `permission denied` please follow the commands below:
 
+#let's you access the jenkins server within git bash terminal with admin privileges
 `sudo su - jenkins`
 
+#Launches the ssh agent and lets the current terminal use the ssh keys without manually to do it
 `eval `ssh-agent -s``
 
+#Used to link the ssh connection from the local host to your github 
 `ssh -T git@github.com`
 
 - Exit Jenkins terminal `exit`
@@ -174,6 +178,9 @@ FYI - This `dev` branch did not work for my case, so instead I switched back `ma
 
 <img width="806" alt="Step 10 New webhook pipeline" src="https://user-images.githubusercontent.com/126012715/236361402-f6d0b2fa-37b5-4221-be3d-275106c54c66.png">
 
+- Make sure to `deploy key` within the repo to link the Jenkins server to the public key.
+- This is your `pub key` from your `.ssh key-gen` use `cat name-github-key` to access the 
+
 <h3>Step 4</h3>
 
 - Within the `build environment` we choose to `provide Node & npm` which is the `spata-node-app` which we configured through the plugins
@@ -185,7 +192,7 @@ FYI - This `dev` branch did not work for my case, so instead I switched back `ma
 
 <h2>Creating the merge(test) Job </h2>
 
-FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this `link` if you do progress onto this stage. This is used to edit our `app` folder thus merging it with the `main` thus deploying it after through our ` AWS app Instance`.
+FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this [Jenkins CI/CD Setup](https://github.com/Lost-Crow23/Jenkins_CI_CD/blob/main/Jenkins_Setup.md#jenkins-cicd-setup) if you do progress onto this stage. This is used to edit our `app` folder thus merging it with the `main` thus deploying it after through our ` AWS app Instance`.
 
 <h2>Creating to deploy our Sparta App</h2>
 
