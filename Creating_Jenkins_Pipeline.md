@@ -147,5 +147,27 @@ Step 2
 
 If errors persist with the key e.g `permission denied` please follow the commands below:
 
+`sudo su - jenkins`
 
+`eval `ssh-agent -s``
 
+`ssh -T git@github.com`
+
+- Exit Jenkins terminal `exit`
+
+Step 3
+
+- Within the `branch Specifier` change to `dev` instead of main, as we now are creating our `dev` branch to use within GitHub and Jenkins deployment.
+
+FYI - This `dev` branch did not work for my case, so instead I switched back `main` to make it easier when I start deploying the sparta app. 
+
+- Select `GitHub Hook Trigger` which we setup earlier.
+
+Step 4
+
+- Within the `build environment` we choose to `provide Node & npm` which is the `spara-node-app` which we configured through the plugins
+- Within the `execute shell` command:
+
+      cp app
+      npm install
+      npm test
