@@ -174,7 +174,7 @@ Step 4
 
 Creating the merge(test) Job
 
-FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this `link` if you do progress onto this stage. 
+FYI - This has not been created due to not being able to use the `dev` branch to sync it to my main. But it has been successfully done in my previous readme.md file as the pipeline was clear and working. You may want to try and have a look at this `link` if you do progress onto this stage. This is used to edit our `app` folder thus merging it with the `main` thus deploying it after through our ` AWS app Instance`.
 
 Creating to deploy our Sparta App
 
@@ -218,4 +218,15 @@ Diagram
 
 Final Iteration
 
-- 
+- Choose the first job e.g `name-ci` and edit the configuration
+- Edit `post-build actions` and `build other projects`
+- We edit and choose our `name-ci-deploy`
+
+FYI - This should have been the `test` instead it is the `merge` job but since it did not work in this instance we are skipping to the deploying stage, IN REAL TIME PROJECTS, THIS IS FATAL AND YOU CANNOT DO THIS, but due to time purposes, we are just authenticating the deployment if it works through our own jenkins.
+
+- Select `Trigger only if build is stable`
+
+- You may make changes to the repository then use the commands to push the changes ideally into the `dev` branch, but in this case, it has been directly pushed to the `main` branch within GitHub.
+- You may now paste the `name-ci-app-new-v1` IP into the browser with the `:3000` and should work.
+
+Diagram
