@@ -8,7 +8,7 @@ Continuous integration (CI) is a DevOps practice in which team members regularly
 after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
 deployed to production.
 
-Diagram 
+![diagram jenkins](https://user-images.githubusercontent.com/126012715/236406800-1223672b-f5ca-407c-a0a9-9aab077c97ef.png)
 
 <h2>Creating an AWS Instance</h2>
 
@@ -27,11 +27,11 @@ to work around
 
 <h2>Create a Agent Node</h2>
 
-All dependdencies to run the app folder has been installed within this instance.
+All dependencies to run the app folder has been installed within this instance.
 
-- Create name e.g `name-ci-app-new-v1` and choose ubuntu 18.04
-- Make sure to click `t2.micro` as our server would not overload and CPU would remain standard
-- Key/pair `tech221` and now we create our SGs with the given access ports as below
+- Create name e.g `name-ci-app-new-v1` and choose ubuntu 18.04.
+- Make sure to click `t2.micro` as our server would not overload and CPU would remain standard.
+- Key/pair `tech221` and now we create our SGs with the given access ports as below.
 
 <img width="1156" alt="Step 2 CI app new v1 SGs" src="https://user-images.githubusercontent.com/126012715/236359621-9a08ba3e-f64e-4297-817d-c0e737f6662d.png">
 
@@ -39,9 +39,9 @@ All dependdencies to run the app folder has been installed within this instance.
 
 <h3>Step 1</h3>
 
-- On git bash terminal, make sure to `.ssh` onto your instance of the master e.g `name-tech221-master-jenkins`
-- Make sure you are logged in as a user with `admin` or be able to use `sudo`
-- Then run the following commands
+- On git bash terminal, make sure to `.ssh` onto your instance of the master e.g `name-tech221-master-jenkins`.
+- Make sure you are logged in as a user with `admin` or be able to use `sudo`.
+- Then run the following commands.
 
       sudo apt-get update
       #since Jenkins is a Java application, the first step is to install Java.
@@ -72,7 +72,7 @@ we add `:8080` at the end for Jenkin's.
 
 ![Unlock Jenkins Step 2 ](https://user-images.githubusercontent.com/126012715/236359670-ec3520b0-f717-4ca3-950c-98ffb3125e3d.png)
 
-- From our previous commands we were given a password, to access jenkin's, so we just copy and paste the password e.g `0eefc4f9f74d4896a05bef8e294504d9` and click `continue` 
+- From our previous commands we were given a password, to access jenkin's, so we just copy and paste the password e.g `0eefc4f9f74d4896a05bef8e294504d9` and click `continue`. 
 
 <h3>Step 3</h3>
 
@@ -145,7 +145,7 @@ For your information: In this instance, my merging `dev` branch did not seem to 
 
 <h3>Step 2</h3>
 
-- SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link, 
+- SCM to, on main branch repo, SSH key link for the repository URL, and thus create a new key which you may do within the .ssh folder following this link 
 - Choose `SSH Username` and paste the new key and click add in credentials. 
 - Make sure the name of the private key insights that is shown in your terminal matches and the key is perfectly copy and pasted.
 
