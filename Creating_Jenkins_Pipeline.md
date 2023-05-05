@@ -19,7 +19,7 @@ to work around
 - Key/pair tech221 and now we create out SG's which will create access ports connections from our local host to Jenkins 
 - Launch the instance
 
-Diagram
+<img width="1155" alt="Step 1 SG instance" src="https://user-images.githubusercontent.com/126012715/236359401-5047f746-9b8a-4527-af19-aebb5fcc06a2.png">
 
 <h3>Step 2</h3>
 
@@ -31,7 +31,7 @@ All dependdencies to run the app folder has been installed within this instance.
 - Make sure to click `t2.micro` as our server would not overload and CPU would remain standard
 - Key/pair `tech221` and now we create our SGs with the given access ports as below
 
-Diagram 
+<img width="1156" alt="Step 2 CI app new v1 SGs" src="https://user-images.githubusercontent.com/126012715/236359621-9a08ba3e-f64e-4297-817d-c0e737f6662d.png">
 
 <h2>Installing Jenkins on Ubuntu 18.04</h2>
 
@@ -68,7 +68,7 @@ Diagram
 - To Setup the jenkin's installation, open your browser and type your IP address from your AWS EC2 instance e.g `http://54.154.206.39:8080/` making sure
 we add `:8080` at the end for Jenkin's.
 
-Diagram
+![Unlock Jenkins Step 2 ](https://user-images.githubusercontent.com/126012715/236359670-ec3520b0-f717-4ca3-950c-98ffb3125e3d.png)
 
 - From our previous commands we were given a password, to access jenkin's, so we just copy and paste the password e.g `0eefc4f9f74d4896a05bef8e294504d9` and click `continue` 
 
@@ -81,6 +81,8 @@ Diagram
 <h3>Step 4</h3> 
 
 - Now we setup our Admin `Username` and `password` for jenkins account.
+
+diagram
 
 <h3>Step 5</h3>
 
@@ -161,6 +163,11 @@ If errors persist with the key e.g `permission denied` please follow the command
 FYI - This `dev` branch did not work for my case, so instead I switched back `main` to make it easier when I start deploying the sparta app. 
 
 - Select `GitHub Hook Trigger` which we setup earlier.
+
+- Create a webhook in the `settings` of the GitHub repo in `main` branch, `delete` the previous webhooks used and create a new one.
+- Copy the Jenkins URL IP address but add `/github-webhook/` to initiate the webhook.
+- Add the `pub key` as you would copy and paste it from the git bash terminal.
+- Choose `application/json` and save.
 
 <h3>Step 4</h3>
 
