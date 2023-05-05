@@ -8,6 +8,8 @@ Continuous integration (CI) is a DevOps practice in which team members regularly
 after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
 deployed to production.
 
+Diagram 
+
 <h2>Creating an AWS Instance</h2>
 
 <h3>Step 1</h3>
@@ -76,13 +78,13 @@ we add `:8080` at the end for Jenkin's.
 
 - A setup wizard will ask you whether you want to install suggested plugins or specific plugins. We chose `install suggested plugins`
 
-Diagram
+![Step 4 Install plugins](https://user-images.githubusercontent.com/126012715/236361221-e3a84234-0659-4c9f-b0db-4d404280534e.png)
 
 <h3>Step 4</h3> 
 
 - Now we setup our Admin `Username` and `password` for jenkins account.
 
-diagram
+<img width="997" alt="Step 6 Create first admin master node jenkins" src="https://user-images.githubusercontent.com/126012715/236361235-8aed2a13-ff21-4a9f-895a-c8238ca8b29c.png">
 
 <h3>Step 5</h3>
 
@@ -92,7 +94,7 @@ diagram
 
 - Jenkins should be ready to use.
 
-Diagram
+<img width="1000" alt="Step 7 Jenkins is ready master node" src="https://user-images.githubusercontent.com/126012715/236361245-a6d59e26-55e1-4276-9bf8-fbe24b3f31dc.png">
 
 <h3>Installing Plugins</h3>
 
@@ -100,6 +102,7 @@ These plugins are required to move further to use our Jenkins with our instance 
 
 - On Jenkins, go to `dashboard` and choose `manage jenkins`
 
+<img width="1090" alt="Step 8 Manage Jenkins" src="https://user-images.githubusercontent.com/126012715/236361278-5f9169e2-1be0-491a-a848-627ee33b4c65.png">
 
 - Click `Available Plugins`
 - And install the following plugins either with `restart` or `without restart`.
@@ -119,7 +122,7 @@ These plugins are required to move further to use our Jenkins with our instance 
 
 - Click save
 
-diagram 
+<img width="1155" alt="Step 9 Nodejs Step " src="https://user-images.githubusercontent.com/126012715/236361310-4c9d5477-ba8a-4f6f-879c-75bc7bb9f00a.png">
 
 <h3>Final Step</h3>
 
@@ -169,6 +172,8 @@ FYI - This `dev` branch did not work for my case, so instead I switched back `ma
 - Add the `pub key` as you would copy and paste it from the git bash terminal.
 - Choose `application/json` and save.
 
+<img width="806" alt="Step 10 New webhook pipeline" src="https://user-images.githubusercontent.com/126012715/236361402-f6d0b2fa-37b5-4221-be3d-275106c54c66.png">
+
 <h3>Step 4</h3>
 
 - Within the `build environment` we choose to `provide Node & npm` which is the `spata-node-app` which we configured through the plugins
@@ -193,7 +198,7 @@ FYI - This has not been created due to not being able to use the `dev` branch to
       
 <h3>Step 2</h3>
 
-- SCM to, on main branch repo, SSH key link for the repository URL, and thus choose git and insert the private key which you may do within the .ssh folder or the previous created credentials
+- SCM to, on main branch repo, SSH key link for the repository URL, and thus choose git and insert the private key which you may do within the .ssh folder or the previous created credentials.
 
 <h3>Step 3</h3>
 
@@ -201,7 +206,7 @@ FYI - This has not been created due to not being able to use the `dev` branch to
 - Choose `provide Node & npm` choosing `sparta-node-app`
 - From plugin `ssh agent` we create our own `ssh username`, secret key, `cat tech221.pem` command in Git bash terminal within the `.ssh` folder to give the secret key and add too credentials.
 
-Diagram
+<img width="974" alt="ruhal-aws-key deploy" src="https://user-images.githubusercontent.com/126012715/236361423-91970579-81fe-4d6e-a771-fb2e9d22ed01.png">
 
 <h3>Step 4</h3>
 
@@ -216,11 +221,13 @@ Diagram
       
 - Paste the IP from the `name-ci-app-new-v1` which is the AMI App instance
 
+<img width="935" alt="step 12 Execute Shell file Last script deploy" src="https://user-images.githubusercontent.com/126012715/236361461-3a70a10a-0ff8-45c5-8adf-fe57bdb9215e.png">
+
 <h3>Step 5</h3>
 
 - Go back to Jenkins and see if the `build-jobs` are running and working, which be should displayed as a green tick or a blue circle.
 
-Diagram
+<img width="1433" alt="Step 13 Check to see if jenkins job working" src="https://user-images.githubusercontent.com/126012715/236361453-d8581838-9698-43ce-a735-131f08615744.png">
 
 <h3>Final Iteration</h3>
 
@@ -232,7 +239,11 @@ FYI - This should have been the `test` instead it is the `merge` job but since i
 
 - Select `Trigger only if build is stable`
 
+<img width="993" alt="Final step deploy post build actions" src="https://user-images.githubusercontent.com/126012715/236361500-659164c0-dd08-435e-9664-860bc2c4fadd.png">
+
+
 - You may make changes to the repository then use the commands to push the changes ideally into the `dev` branch, but in this case, it has been directly pushed to the `main` branch within GitHub.
 - You may now paste the `name-ci-app-new-v1` IP into the browser with the `:3000` and should work.
 
-Diagram
+<img width="1357" alt="Final Deployment Jenkins pipeline" src="https://user-images.githubusercontent.com/126012715/236361516-36704757-663a-4de3-963a-8a038859344f.png">
+
