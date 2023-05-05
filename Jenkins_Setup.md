@@ -1,6 +1,12 @@
  <h1>Jenkins CI/CD Setup</h1>
 
-We use Jenkins for the CI and CD through our Github to launch it on the AWS AMI cloud instance deployment
+We use Jenkins for the CI and CD through our Github to launch it on the AWS AMI cloud instance deployment.
+
+Continuous integration (CI) is a DevOps practice in which team members regularly commit their code changes to the version control repository, 
+after which automated builds and tests are run. Continuous delivery (CD) is a series of practices where code changes are automatically built, tested
+deployed to production.
+
+![diagram jenkins](https://user-images.githubusercontent.com/126012715/236408735-fee5e8f3-6d87-4f54-855e-17738af87def.png)
 
 <h2>Pre-requisites</h2>
 
