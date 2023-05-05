@@ -129,7 +129,7 @@ As this was done previously, you may use the steps as before or follow the steps
 
 For your information: In this instance, my merging `dev` branch did not seem to authenticate and work when I merge it into the main from changing my files in my Github repo thus not completing the job in Jenkins. 
 
-<strong>Must do:
+<strong>Must do</strong>:
 
 <h3>Step 1</h3>
 
